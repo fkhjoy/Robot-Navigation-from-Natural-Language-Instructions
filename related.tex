@@ -1,0 +1,78 @@
+\chapter{Related Works}
+Navigation requires the agent to reason about its relative position to objects and how these relations change as it moves through the environment. While in both learning requires relying on indirect supervision to acquire spatial knowledge and language grounding, for navigation, the training data includes demonstrated actions, and for spatial description resolution, annotated target locations. We have studied the problem of reasoning about natural language instructions to navigate and found some works related to our project.
+
+\section{Talk The Walk~\cite{DBLP:journals/corr/abs-1807-03367}}
+They introduce the Talk the Walk, where the aim is for two agents, a “guide” and a “tourist”, to interact with each other via natural language in order to achieve a common goal: having the tourist navigate towards the correct location. The guide has access to a map and knows the target location, but does not know where the tourist is; the tourist has a 360-degree view of the world, but knows neither the target location on the map nor the way to it. The agents need to work together through communication in order to successfully solve the task. An example of the task is given in Figure~\ref{fig:3}. 
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.1\textwidth]{Tourist}
+    \caption{ Example of the Talk The Walk task~\cite{DBLP:journals/corr/abs-1807-03367}}
+    \label{fig:3}
+\end{figure}
+In Figure~\ref{fig:3}:  two agents, a “tourist” and a “guide”, interact with each other via natural language in order to have the tourist navigate towards the correct location. The guide has access to a map and knows the target location but not the tourist location, while the tourist does not have a map and is tasked with navigating a 360-degree street view environment. 
+\subsection*{Example:}
+Tourist: ACTION:TURNRIGHT ACTION:TURNRIGHT\\ 
+Guide: Hello, what are you near?\\ 
+Tourist: ACTION:TURNLEFT ACTION:TURNLEFT ACTION:TURNLEFT\\ 
+Tourist: Hello, in front of me is a Brooks Brothers \\
+Tourist: ACTION:TURNLEFT ACTION:FORWARD ACTION:TURNLEFT ACTION:TURNLEFT 
+Guide: Is that a shop or restaurant? \\
+Tourist: ACTION:TURNLEFT \\
+Tourist: It is a clothing shop.\\ 
+Tourist: ACTION:TURNLEFT \\
+Guide: You need to go to the intersection in the northwest corner of the map\\ Tourist: ACTION:TURNLEFT\\ 
+Tourist: There appears to be a bank behind me.\\ 
+Tourist: ACTION:TURNLEFT ACTION:TURNLEFT ACTION:TURNRIGHT ACTION:TURNRIGHT\\ Guide: Ok, turn left then go straight up that road \\
+Tourist: ACTION:TURNLEFT ACTION:TURNLEFT ACTION:TURNLEFT ACTION:FORWARD ACTION:TURNRIGHT ACTION:FORWARD ACTION:FORWARD ACTION:TURNLEFT ACTION:TURNLEFT ACTION:TURNLEFT \\
+Guide: There should be shops on two of the corners but you need to go to the corner without a shop.\\ 
+Tourist: ACTION:FORWARD ACTION:FORWARD ACTION:FORWARD ACTION:TURNLEFT ACTION:TURNLEFT\\ 
+Guide: let me know when you get there. \\
+Tourist: on my left is Radio city Music hall.\\
+Tourist: ACTION:TURNLEFT ACTION:FORWARD ACTION:TURNLEFT ACTION:TURNRIGHT ACTION:TURNRIGHT \\
+Tourist: I can’t go straight any further.\\ 
+Guide: ok. turn so that the theater is on your right.\\ 
+Guide: then go straight \\
+Tourist: That would be going back the way I came \\
+Guide: yeah. I was looking at the wrong bank \\
+Tourist: I’ll notify when I am back at the brooks brothers, and the bank.\\ Tourist: ACTION:TURNRIGHT \\
+Guide: make a right when the bank is on your left \\
+Tourist: ACTION:FORWARD ACTION:FORWARD ACTION:TURNRIGHT \\
+Tourist: Making the right at the bank. \\
+Tourist: ACTION:FORWARD ACTION:FORWARD \\
+Tourist: I can’t go that way. \\
+Tourist: ACTION:TURNLEFT \\
+Tourist: Bank is ahead of me on the right \\
+Tourist: ACTION:FORWARD ACTION:FORWARD ACTION:TURNLEFT \\
+Guide: turn around on that intersection \\
+Tourist: I can only go to the left or back the way I just came. \\
+Tourist: ACTION:TURNLEFT \\
+Guide: you’re in the right place. do you see shops on the corners? \\
+Guide: If you’re on the corner with the bank, cross the street \\
+Tourist: I’m back where I started by the shop and the bank. \\
+Tourist: ACTION:TURNRIGHT \\
+Guide: on the same side of the street? \\
+Tourist: crossing the street now \\
+Tourist: ACTION:FORWARD ACTION:FORWARD ACTION:TURNLEFT \\
+Tourist: there is an I love new york shop across the street on the left from me now \\
+Tourist: ACTION:TURNRIGHT ACTION:FORWARD \\
+Guide: ok. I’ll see if it’s right. \\
+Guide: EVALUATE LOCATION \\
+Guide: It’s not right. \\
+Tourist: What should I be on the look for? \\
+Tourist: ACTION:TURNRIGHT ACTION:TURNRIGHT ACTION:TURNRIGHT \\
+Guide: There should be shops on two corners but you need to be on one of the corners without the shop. \\
+Guide: Try the other corner. \\
+Tourist: this intersection has 2 shop corners and a bank corner \\
+Guide: yes. that’s what I see on the map. \\
+Tourist: should I go to the bank corner? or one of the shop corners? or the blank corner (perhaps a hotel) \\
+Tourist: ACTION:TURNLEFT ACTION:TURNLEFT ACTION:TURNRIGHT ACTION:TURNRIGHT Guide: Go to the one near the hotel. The map says the hotel is a little further down but it might be a little off. \\
+Tourist: It’s a big hotel it’s possible. \\
+Tourist: ACTION:FORWARD ACTION:TURNLEFT ACTION:FORWARD ACTION:TURNRIGHT\\ Tourist: I’m on the hotel corner \\
+Guide: EVALUATE LOCATION\\
+
+Talk The Walk is the first task to bring all three aspects together: perception for the tourist observing the world, action for the tourist to navigate through the environment, and interactive dialogue for the tourist and guide to work towards their common goal.
+
+As the main focus of their task is on interactive dialogue, they limit the difficulty of the control problem by having the tourist navigating a 2D grid via discrete actions (turning left, turning right and moving forward)~\cite{DBLP:journals/corr/abs-1807-03367}.
+ 
+ 

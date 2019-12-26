@@ -1,0 +1,35 @@
+\documentclass[a4paper,12pt,oneside]{book}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{Images/}}
+%\setlength{\marginparwidth}{2cm}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{listings}
+\usepackage[margin=1in]{geometry}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{enumerate}
+\usepackage{tabu}
+\usepackage{array}
+\usepackage{framed}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+
+
+\begin{document}
+    \include{titlepage}
+    \tableofcontents    
+	\input{introduction}
+    \input{related}
+    \input{related1}
+    \input{related2}
+    \input{related3}    
+    \input{methodology}	
+    \input{result}
+       
+    \input{conclusion}
+	\bibliographystyle{plain}
+	\bibliography{procite}
+\end{document}
