@@ -62,19 +62,16 @@ In the second case, the machine should be able to translate the text into anothe
 In these examples, the definition of a word, the subject of verbs, and the pronoun sit-in are the steps of the meaning of a sentence that we hope to be able to understand.
 
 \subsection{Spoken Dialog Systems}
-In the history of artificial intelligence, the main measure of intelligence has been a linguistic, Turing test: if a dialog system, responding to a user's text input, can perform so naturally that we can't differentiate it from human-generated reactions. Can't i? On the contrary, today's commercial dialog systems are very limited but still perform useful functions in short-term domains, as we can see here:\\
-DONE
+In the study of past of artificial intelligence, the main measure of intelligence has been a linguistic, Turing test: if a dialog system, responding to a user's text input, can perform so naturally that we can't differentiate it from human-generated reactions. Can't i? On the contrary, today's commercial dialog systems are very limited but still perform useful functions in short-term domains, as we can see here:\\
 S: How may I help you?\\
-U: How can I go to ?\\
-S: For what theater?\\
-U: The Paramount theater.\\
-S: Game of Thrones is not playing at the Paramount theater, but
-it's playing at the Madison theater at 3:00, 5:30, 8:00, and 10:30.\\
+U: Deliver some food from the list to Shahidullah Hall after buying these from TSC.\\
+S: Buying food from TSC first and then deliver these to Shahidullah Hall?\\
+U: Yes.\\
 
-We could not ask this system to provide driving instructions or details of nearby restaurants unless the required information had already been stored and suitable question-answer pairs had been incorporated into the language processing system.
+We could not ask the machine to produce driving directions or details of nearby restaurants unless the specified info had already been hold on and appropriate question-answer pairs had been incorporated into the language processing system.
 
-Observe that this system seems to understand the user's goals: the user asks when a movie is showing and the system correctly determines from this that the user wants to see the movie. This inference seems so obvious that you probably didn't notice it was made, yet a natural language system needs to be endowed with this capability in order to interact naturally. Without it, when asked \emph{Do you know when Saving Private Ryan is playing?}, a system might unhelpfully respond with a cold \emph{Yes}. However, the developers of commercial dialogue systems use contextual assumptions and business logic to ensure that the different ways in which a user might express requests or provide information are handled in a way that makes sense for the particular application. So, if you type \emph{When is} ..., or \emph{I want to know when} ..., or \emph{Can you tell me when} ..., simple rules will always yield screening times. This is enough for the system to provide a useful service.
-
+Observe that this system understands the sequence of working plan based on the instruction: the user tells an instruction in complex way and the system correctly determines from this that the user wants to deliver some food but it needs to buy these foods first. This assumption seems so obvious that you probably didn't notice that it was trained, yet a natural language system needs to be completed with this skill to communicate naturally. WIthout it, when asked \emph{Deliver some food from the list to Shahidullah Hall after buying these from TSC.}, a system might plan to deliver first and to buy food from TSC.
+Usually contextual assumptions and business logic is used in commercial dialogue systems to ensure that a user can request or provide information that pays for specific applications.
 
 \begin{figure}
     \centering
@@ -83,9 +80,10 @@ Observe that this system seems to understand the user's goals: the user asks whe
     \label{fig:1}
 \end{figure}
 
-In Figure~\ref{fig:1}, \emph{Spoken input (top left) is analyzed, words are recognized, sentences are parsed and interpreted in context, application-specific actions take place (top right); a response is planned, realized as a syntactic structure, then to suitably inflected words, and finally to spoken output; different types of linguistic knowledge inform each stage of the process.}
+In Figure~\ref{fig:1}, \emph{Spoken signal (top left) is taken, speech is recognized, words are parsed and taken in context, application-specific actions occur (top right); a reaction is planned, is realized as a syntactic structure, then to the words that are properly replaced and finally to the spoken output; The different types of linguistic knowledge inform each level of the process.}
 
-Dialogue systems give us an opportunity to mention the commonly assumed pipeline for NLP. Figure~\ref{fig:1} shows the architecture of a simple dialogue system. Along the top of the diagram, moving from left to right, is a "pipeline" of some language understanding components. These map from speech input via syntactic parsing to some kind of meaning representation. Along the middle, moving from right to left, is the reverse pipeline of components for converting concepts to speech. These components make up the dynamic aspects of the system. At the bottom of the diagram are some representative bodies of static information: the repositories of language-related data that the processing components draw on to do their work.
+Dialogue systems give us the fundamental pipeline for NLP. Figure~\ref{fig:1} 
+shows the architecture of a normal dialog system. One of the few language-understanding elements that move left to right at the top of the diagram is "Pipeline". This map is a kind of money-making from the spicinput through the syntactic parsing. In the middle, the opposite pipeline of elements to convert the concept from right to left. These elements create dynamic aspects of the system. Below the diagram there are a few representative organizations of static information: the collection of language-related data for processing materials to do their job.
 
 \subsection{Textual Entailment}
 The challenge of language understanding has been brought into focus in recent years by a public "shared task" called Recognizing Textual Entailment (RTE). The basic scenario is simple. Suppose we want to find evidence to support the hypothesis: \emph{Sandra Goudie was defeated by Max Purnell}, and that we have another short text that seems to be relevant, for example, \emph{Sandra Goudie was first elected to Parliament in the 2002 elections, narrowly winning the seat of Coromandel by defeating Labour candidate Max Purnell and pushing incumbent Green MP Jeanette Fitzsimons into third place}. Does the text provide enough evidence for us to accept the hypothesis? In this particular case, the answer will be "No." We can draw this conclusion easily, but it is very hard to come up with automated methods for making the right decision.
