@@ -1,15 +1,32 @@
 \chapter{Conclusion}
-Our language processing task also have needed some fundamental modifications. We still worked with English language but we hope to work for Bengali language. Processing Bengali language in a computational environment is a challenging task. We've have to work with unicode. As Bengali language have more difficult syntax then English language so one of our core challenging task still remain.\\
+As our collective human knowledge getting richer and the purpose of these knowledge is to make human life easy so it is a key component that a robot or an agent that works on behalf of human should have the ability to understand human level language so that humans don't have to take the burden of making sure the instructions s/he gives that is properly translated by the robot. \\
 
-Further its difficult to work with Bengali language as there are not enough Bengali language datasets for such computational tasks. We might have to make our own dataset for training the fundamental models that we've used in this task.\\
+In this work, we introduced robot navigation task using natural language. Typically to navigate a robot we have to use the navigation command that the robot can understand like turn left, turn right etc. But in this work we proposed a method where in an known environment we'll just talk to robot for navigating from one point to another point and we don't have to think about will the robot understand our instruction or not. \\
 
-For processing Language and extracting necessary information in this case, determining which is desired destination in a given natural language instruction we used very basic machine learning model without any hyper-parameter tuning. So we didn't get enough good result but we hope to use more advance models or neural networks that we still didn't explore much.\\
+If one human gives some navigation instruction to another human, the words or language are used between the navigation focused conversation between two humans should also be used for instructing robot. In other words, a robot should supposed to have the ability to understand human level language for navigation related task. \\
 
-We worked with basic reinforcement learning algorithm which is not much efficient that we aimed for this project. In the upcoming advance version of this project, we aim to deploy one or more machine learning models to generate necessary navigation commands from given natural language instruction.\\
 
-The reinforcement learning algorithm that we've used here, in a known environment it works properly and efficiently. But with the increase of environment this algorithms becomes slower. So for a complex environment this algorithm is not much suitable. As our environment is still not much complex so our algorithm will work properly here.\\
+\textbf{Limitations} \\
+Work that we already have done certainly have some limitations. Here we're addressing some of those limitations. \\
 
-Our simulation environment is still very simple and we used this currently for demonstration purpose only. This environment represents nothing of real life. We aim to design an environment that'll capable of represents a real life environment.\\
+As we used learning method so that it certainly have limitations. We used 10000 data points but still some kind of natural language instruction are missing that we couldn't assign in our dataset. So in future if we give some instruction that is not in our dataset, the model will face some difficulties to extract proper information. \\
 
-We've studied several papers and tested various technical issues. So apparently our task seems very simple but the implication of our endeavor will be visible very soon.	  
+Sequence of locations that we are providing as output is an important issue during navigation. But our model sometimes provide some ambiguous output like which is destination it treat that as starting point and which is starting point it treat that as destination. Here some more works left that we couldn't accomplish here. \\
+
+We used only eight locations. So if someone talk to navigate some unknown location rather than indicating that its an unknown location, the robot treat the new location as it is within those eight locations. Which is certainly a major limitations of our work. \\
+
+We only simulate a simple hardware based robot which don't have any access to GPS. But our project shows output in actual world map. So its also a limitations that we didn't prepare proper hardware prototype for the proposed work. \\
+
+\textbf{Future Scope} \\
+Based on the limitations, we could easily detect what are some future scope left for our project. \\
+
+Firstly as we didn't develop any speech recognition system here so adding or developing a specialized speech recognition system is one of major section of future work.
+
+If more variation of instruction with complex grammar structure can be added to the dataset then certainly the model will perform better than our current work. \\
+
+To properly detect the sequence of the model it possibly could use a regression along with classification. Classification is used to detect whether a certain location is mentioned in the instruction or not. A regression can be used to predict that which is source and which is destination. So adding a regression functionality is surely a big issue associate with future scope. \\
+
+The hardware we demonstrated here didn't had any GPS access. So making a hardware with GPS access that can be navigated according to the actual map would certainly be a great work that still remain incomplete. \\
+
+We actually proposed a procedure of working with geographical navigation data and natural language instructions. This module can be used in several application like food delivery robot or smart wheelchair etc. 
 	

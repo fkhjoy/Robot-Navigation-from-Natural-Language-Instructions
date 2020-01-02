@@ -8,7 +8,7 @@
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{listings}
 \usepackage[margin=1in]{geometry}
-\usepackage{subcaption}
+%\usepackage{subcaption}
 \usepackage{caption}
 \usepackage{enumerate}
 \usepackage{tabu}
@@ -16,18 +16,25 @@
 \usepackage{framed}
 \usepackage{graphicx}
 \usepackage{ragged2e}
-
-
+\usepackage{framed}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{longtable}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{float}
 \begin{document}
     \include{titlepage}
+    \include{titlepage_onlyroll}
     \tableofcontents    
 	\input{introduction}
     \input{related}
     \input{related1}
     \input{related2}
     \input{related3}    
-    \input{methodology}	
-    \input{result}
+    \input{meth}	
+    \input{comp_result}
+    \input{simulation}
        
     \input{conclusion}
 	\bibliographystyle{plain}
