@@ -1,10 +1,10 @@
-\section{Mapping Instructions and Visual Observations to Actions~\cite{DBLP:journals/corr/MisraLA17}}
-They propose to directly map raw visual observations and text input to actions for instruction execution.  While existing approaches assume access to structured environment representations or use a pipeline of separately trained models, they learn a single model to jointly reason about linguistic and visual input. They use reinforcement learning in a contextual bandit setting to train a neural network agent. To guide the agent’s exploration, they use reward shaping with different forms of supervision~\cite{DBLP:journals/corr/MisraLA17}.
+\section{Mapping Instructions and Visual Observations to Actions}
+In ~\cite{DBLP:journals/corr/MisraLA17}, they propose to directly map raw visual observations and text input to actions for instruction execution.  While existing approaches assume access to structured environment representations or use a pipeline of separately trained models, they learn a single model to jointly reason about linguistic and visual input. They use reinforcement learning in a contextual bandit setting to train a neural network agent. To guide the agent’s exploration, they use reward shaping with different forms of supervision.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.8\textwidth]{block}
-    \caption{Blocks environment}
+    \caption{Blocks environment~\cite{DBLP:journals/corr/MisraLA17}}
 \end{figure}
 \newpage
 \begin{table}[h!]
@@ -21,13 +21,13 @@ They propose to directly map raw visual observations and text input to actions f
     Toyota, right side of SRI.\\
     \hline
     \end{tabular}
-    \caption{Instructions in the Blocks environment}
+    \caption{Instructions in the Blocks environment~\cite{DBLP:journals/corr/MisraLA17}}
     \label{tab:1}
 \end{table}
 
-In Table~\ref{tab:1}, illustrates the problem in the Blocks environment. The agent observes the environment as an RGB image using a camera sensor. Given the RGB input, the agent must recognize the blocks and their layout. To understand the instruction, the agent must identify the block to move (Toyota block) and the destination (just right of the SRI block). This requires solving semantic and grounding problems. For example, consider the topmost instruction in the figure. The agent needs to identify the phrase referring to the block to move, Toyota block, and ground it. It must resolve and ground the phrase SRI block as a reference position, which is then modified by the spatial meaning recovered from the same row as or first open space to the right of, to identify the goal position. Finally, the agent needs to generate actions, for example moving the Toyota block around obstructing blocks. 
+In Table~\ref{tab:1}, illustrates the matter within the Blocks surroundings. The agent observes the surroundings as RGB image employing a camera sensing element. Given the RGB input, the agent should acknowledge the blocks and their layout. To grasp the instruction, the agent should determine the block to maneuver (Toyota block) and also the destination (just right side of the SRI block). This needs determination linguistics and grounding issues. For instance, contemplate the top instruction within the figure. The agent has to determine the phrase pertaining to the block to maneuver, Toyota block, and ground it. It should resolve and ground the phrase SRI block as a reference position, that is then changed by the spatial which means recovered from a similar row as or initial open area to the correct of, to spot the goal position. Finally, the agent has to generate actions, for instance moving the Toyota block around obstructing blocks.
 
-To address these challenges with a single model, they design a neural network agent. The agent executes instructions by generating a sequence of actions. At each step, the agent takes as input the instruction text, observes the world as an RGB image, and selects the next action. Action execution changes the state of the world. Given an observation of the new world state, the agent selects the next action. This process continues until the agent indicates execution completion. When selecting actions, the agent jointly reasons about its observations and the instruction text. This enables decisions based on close interaction between observations and linguistic input.
+To address these challenges with one model, they create a neural network agent. The agent executes directions by generating a sequence of actions. At every step, the agent takes as input the instruction text, observes the planet as RGB image, and selects consequent actions. Action execution changes the state of the environment. Given observation of the new environment state, the agent selects consequent action. This method continues till the agent indicates execution completion. Once choosing actions, the agent together reasons concerning its observations and also the instruction text. This permits selections supported shut interaction between observations and linguistic input.
 
 They study the problem of learning to execute instructions in a situated environment given only raw visual observations. Supervised approaches do not explore adequately to handle test time errors, and reinforcement learning approaches require a large number of samples for good convergence. Their solution provides an effective combination of both approaches: reward shaping to create relatively stable optimization in a contextual bandit setting.
 
