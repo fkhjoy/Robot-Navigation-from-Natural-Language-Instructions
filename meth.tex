@@ -1,4 +1,4 @@
-\chapter{Methodology of Proposed Work}
+\chapter{Methodology}
 The work that we proposed here for navigating a robot using natural language based instruction has 3 major sections. They are:
 \begin{itemize}
     \item Web Environment
@@ -13,7 +13,7 @@ The main work that we've done to demonstrate our task is designing a web interfa
 An image of the designed interface is as follow. \\
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.45]{environment}
+    \includegraphics[scale=0.35]{environment}
     \caption{Used Web Interface}
 \end{figure}
 \vline
@@ -74,19 +74,14 @@ As we mentioned place0 holds values for Curzon Hall. Similarly place1 holds valu
 
 Here is a quick view of our dataset that we've used. \\
 
-\begin{longtable}{|l|l|l|l|l|l|l|ll}
-    \cline{1-7}
-    instruction                                                                                           & place0 & place1 & place2 & place3 & place4 & place5 & place6 & place7 \\ \cline{1-7}
-    \endfirsthead
-    %
-    \endhead
-    %
-    go to Dr. Muhammad Shahidullah Hall                                                                   & 0      & 1000   & 0      & 0      & 0      & 0      & 0      & 0      \\ \cline{1-7}
-    start from Dr. Muhammad Shahidullah Hall to Shaheed Minar                                             & 0      & 2000   & 0      & 0      & 0      & 0      & 0      & 1000   \\ \cline{1-7}
-    start journey from Bangla Academy to Dhaka Medical College Hospital via Dr. Muhammad Shahidullah Hall & 0      & 2000   & 0      & 0      & 3000   & 0      & 0      & 1000   \\ \cline{1-7}
-    go from Dhaka Medical College Hospital to Amar Ekushey Hall                                           & 0      & 0      & 1000   & 0      & 0      & 0      & 0      & 2000   \\ \cline{1-7}
-    go from Curzon Hall to Dhaka Medical College Hospital                                                 & 2000   & 0      & 0      & 0      & 0      & 0      & 0      & 0      \\ \cline{1-7}
-\end{longtable}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=.40]{dataset}
+    %\includegraphics[width=1.5\textwidth]{dataset}
+    
+    \caption{A Quick View of Our Dataset}
+\end{figure}
+\vline
 
 \textbf{Data Preprocessing} \\
 Before describing the model, we first need to prepare our data so that it can be fit to the model. \\
@@ -104,25 +99,25 @@ As we are not dealing with image data so Convolutional Neural Network(CNN) is ne
 After choosing sequential model as our classifier, now the question is what architecture of sequential model will we use? Should we use Recurrent Neural Network(RNN) or Long Short Term Memory(LSTM) architecture? First lets have a look on both of these architecture. \\
 
 \textbf{Recurrent Neural Network(RNN)} \\
-RNN is helpful to tackle problem when previous information also needed to consider for processing current information. RNN is an architechture of networks with loop. [Reference1] \\
+RNN is helpful to tackle problem when previous information also needed to consider for processing current information. RNN is an architechture of networks with loop~\cite{colah2015} \\
 
 The following figure shows a basic building block of RNN. \\
 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.45]{rnn_single_block}
-    \caption{Single Building Block of RNN[Reference2]}
+    \caption{Single Building Block of RNN~\cite{colah2015}}
 \end{figure}
 \vline
 
 In the above figure, block $\textbf{A}$ represent a group of neural networks. It takes some input \textbf{$x_t$} and provide value \textbf{$h_t$} as output. \\
 
-We can think RNN as same network with multiple copies, each of which passes a message to its successor. [Reference3]. If we unroll the RNN it will look like as bellow. \\
+We can think RNN as same network with multiple copies, each of which passes a message to its successor~\cite{colah2015}. If we unroll the RNN it will look like as bellow. \\
 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.45]{rnn_unrolled}
-    \caption{Unrolled RNN[Reference4]}
+    \caption{Unrolled RNN~\cite{colah2015}}
 \end{figure}
 \vline
 
@@ -138,7 +133,7 @@ In all type of RNNs, there is a chain of repeating modules. In a standard RNN, t
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.45]{repeating_rnn}
-    \caption{Single Layer of RNN in Repeating Module[Reference 5]}
+    \caption{Single Layer of RNN in Repeating Module~\cite{colah2015}}
 \end{figure}
 \vline
 
@@ -147,7 +142,7 @@ LSTMs also have RNN like chain structure, but in repeating module of LSTM a diff
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.40]{repeating_lstm}
-    \caption{Repeating LSTM module with Four Interacting Layers[Reference6]}
+    \caption{Repeating LSTM module with Four Interacting Layers~\cite{colah2015}}
 \end{figure}
 \vline
 
@@ -177,7 +172,7 @@ For brevity we skip the details of each step. A full and quick overview of a LST
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.40]{lstm}
-    \caption{Complete LSTM Cell[Reference7]}
+    \caption{Complete LSTM Cell~\cite{colah2015}}
 \end{figure}
 \vline
 
@@ -227,6 +222,16 @@ For getting route between two or several location, we fist collected the latitud
 
 \section{Flowchart}
 An overview of the whole procedure could be easily understood from a flowchart that is added in the next page. \\
+
+In this flowchart, it can be seen that first our program is started. When we start our server, the program stared here. \\
+
+Then the person who using the program speak some navigation instruction. This voice data is sent to speech recognizer module. \\
+
+After that this module will give us the converted text. If the voice is not properly detected then the user have to speak the instruction again. \\
+
+After that, the text instruction is applied on Tokenizer and then applied on the Model. \\
+
+After that the model will give us specific locations that the person instructed to be navigated. And finally the map is shown on the map section. \\
 
 \begin{figure}[h]
     \centering
